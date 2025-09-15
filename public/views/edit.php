@@ -15,6 +15,11 @@ $vehicles = $vehicleManager->getVehicles();
 
 $vehicle = $vehicles[$id] ?? null;
 
+if ($vehicle === null) {
+    header ('Location: ../index.php');
+    exit;
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $vehicleManager = new VehicleManager("", "","", "");
 

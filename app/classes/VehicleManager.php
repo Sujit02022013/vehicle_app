@@ -23,7 +23,12 @@ class VehicleManager extends VehicleBase implements VehicleActions {
     }
 
     public function deleteVehicle($id) {
-        
+        $vehicles = $this->readFile();
+        if (isset($vehicles[$id])) {
+            unset($vehicles[$id]);
+            $vehicles = array_values($vehicles); // Reindex array
+            $this->writeFile($vehicles);
+        }
     }
 
     public function getVehicles() {
