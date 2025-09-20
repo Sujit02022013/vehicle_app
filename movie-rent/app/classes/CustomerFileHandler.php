@@ -1,8 +1,8 @@
 <?php
 
 
-trait FileHandler {
-private $filePath = __DIR__ . '/../../data/vehicles.json';
+trait CustomerFileHandler {
+private $filePath = __DIR__ . '/../../data/customers.json';
 
     public function readFile() {
         if (!file_exists($this->filePath)) {

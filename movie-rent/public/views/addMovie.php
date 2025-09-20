@@ -2,12 +2,12 @@
 
 include './header.php';
 
-require_once "../../app/classes/VehicleManager.php";
+require_once "../../app/classes/MovieManager.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $vehicleManager = new VehicleManager("", "","", "");
+    $movieManager = new MovieManager("", "","", "");
     
-    $vehicleManager->addVehicle(
+    $movieManager->addMovie(
         [
             'name' => $_POST['name'],
             'type' => $_POST['type'],
@@ -22,14 +22,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <div class="container my-4">
-    <h1>Add Vehicle</h1>
+    <h1>Add Movie</h1>
     <form method="POST">
         <div class="mb-3">
-            <label class="form-label">Vehicle Name</label>
+            <label class="form-label">Movie Name</label>
             <input type="text" name="name" class="form-control" required>
         </div>
         <div class="mb-3">
-            <label class="form-label">Vehicle Type</label>
+            <label class="form-label">Movie Type</label>
             <input type="text" name="type" class="form-control" required>
         </div>
         <div class="mb-3">
@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label class="form-label">Image URL</label>
             <input type="text" name="image" class="form-control" required>
         </div>
-        <button type="submit" class="btn btn-primary">Add Vehicle</button>
+        <button type="submit" class="btn btn-primary">Add Movie</button>
     </form>
 </div>
 

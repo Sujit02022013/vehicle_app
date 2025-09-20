@@ -2,9 +2,9 @@
 
 include './header.php';
 
-require_once "../../app/classes/VehicleManager.php";
+require_once "../../app/classes/MovieManager.php";
 
-$vehicleManager = new VehicleManager("", "","", "");
+$movieManager = new MovieManager("", "","", "");
 
 
 $id = $_GET['id'];
@@ -13,25 +13,25 @@ if ($id === null) {
     exit;
 }
 
-$vehicles = $vehicleManager->getVehicles();
+$movies = $movieManager->getMovies();
 
-$vehicle = $vehicles[$id] ?? null;
+$movie = $movies[$id] ?? null;
 
-if ($vehicle === null) {
+if ($movie === null) {
     header ('Location: ../index.php');
     exit;
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['confirm']) && $_POST['confirm'] === 'yes') {
-        $vehicleManager->deleteVehicle($id);
+        $movieManager->deleteMovie($id);
     }
     header('Location: ../index.php');
 }
 ?>
 
 <div class="container my-4">
-    <h1>Delete Vehicle</h1>
+    <h1>Delete Movie</h1>
     <p>Are you sure you want to delete <strong></strong>?</p>
     <form method="POST">
         <button type="submit" name="confirm" value="yes" class="btn btn-danger">Yes, Delete</button>

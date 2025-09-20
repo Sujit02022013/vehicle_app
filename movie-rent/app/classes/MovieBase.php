@@ -1,6 +1,6 @@
 <?php
 
-abstract class VehicleBase {
+abstract class MovieBase {
     protected $name;
     protected $type;
     protected $price;
